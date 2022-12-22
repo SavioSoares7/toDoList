@@ -1,0 +1,26 @@
+.container {
+  background-color: var(--gray-700);
+  height: 20rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8rem 0;
+}
+
+.container strong,
+.container svg {
+  font-size: 4rem;
+  font-weight: bold;
+  cursor: default;
+}
+.container svg {
+  color: var(--purple-dark);
+}
+.container strong {
+  color: var(--blue);
+}
+.container strong span {
+  color: var(--purple-dark);
+}
