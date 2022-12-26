@@ -14,6 +14,22 @@ export function Home() {
           <Input />
           <Button />
         </div>
+
+        <div className={style.containerTask}>
+          <div className={style.taskInfo}>
+            <p>
+              <strong>Tarefas criadas</strong>
+              <span>0</span>
+            </p>
+
+            <p>
+              <strong>Concluídas</strong>
+              <span>0</span>
+            </p>
+          </div>
+
+          <div className={style.taskCreated}></div>
+        </div>
       </div>
     </div>
   );
