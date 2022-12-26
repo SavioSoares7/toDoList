@@ -5,6 +5,8 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 
+import { API } from "../../API";
+
 export function Home() {
   return (
     <div className={style.main}>
