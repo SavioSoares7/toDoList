@@ -4,6 +4,7 @@ import style from "./app.module.css";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Task } from "../../components/Task";
 
 import { API } from "../../API";
 
@@ -21,7 +22,7 @@ export function Home() {
           <div className={style.taskInfo}>
             <p>
               <strong>Tarefas criadas</strong>
-              <span>0</span>
+              <span>{API.length}</span>
             </p>
 
             <p>
@@ -30,7 +31,15 @@ export function Home() {
             </p>
           </div>
 
-          <div className={style.taskCreated}></div>
+          <div className={style.taskCreated}>
+            {API.map((item) => (
+              <Task
+                isCompleted={item.isCompleted}
+                task={item.task}
+                key={item.task}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -33,3 +33,8 @@ body {
   color: var(--gray-200);
   font-size: 1.6rem;
 }
+
+button,
+svg {
+  cursor: pointer;
+}

@@ -8,18 +8,18 @@ interface api extends Array<tasks> {}
 export let API: api = [
   {
     isCompleted: false,
-    task: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+    task: "Limpar á casa.",
   },
   {
     isCompleted: false,
-    task: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+    task: "Sair com o cat.",
   },
   {
     isCompleted: false,
-    task: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+    task: "Programar.",
   },
   {
     isCompleted: true,
-    task: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
+    task: "Viajar.",
   },
 ];
