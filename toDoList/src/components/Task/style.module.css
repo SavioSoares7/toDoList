@@ -16,3 +16,24 @@
   color: var(--gray-100);
   justify-items: flex-start;
 }
+
+.container input {
+  appearance: none;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  height: 16px;
+  width: 16px;
+
+  transition: 500ms all;
+}
+.container input:checked {
+  background-color: var(--blue);
+}
+
+.container svg {
+  color: var(--gray-300);
+  transition: 300ms all;
+}
+.container svg:hover {
+  color: var(--danger);
+}

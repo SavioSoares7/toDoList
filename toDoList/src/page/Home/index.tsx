@@ -1,28 +1,54 @@
 import "../../global.css";
 import style from "./app.module.css";
 
+import { IoMdAddCircleOutline } from "react-icons/io";
+
 import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
 import { Task } from "../../components/Task";
 
-import { API } from "../../API";
+import { useState } from "react";
+
+type taskBuild = {
+  task: string;
+  isCompleted?: boolean;
+};
 
 export function Home() {
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState<taskBuild[]>([]);
+
+  function createTask(taskName: string) {
+    let taskObj: taskBuild = {
+      task: taskName,
+      isCompleted: false,
+    };
+    setTasks((prev) => [...prev, taskObj]);
+
+    console.log(tasks);
+  }
+
   return (
     <div className={style.main}>
       <Header />
       <div className={style.container}>
         <div className={style.addTask}>
-          <Input />
-          <Button />
+          <input
+            type="text"
+            className={style.input}
+            placeholder="Adicione uma nova tarefa"
+            onChange={(e) => setTask(e.target.value)}
+          />
+          <button className={style.button} onClick={() => createTask(task)}>
+            Criar
+            <IoMdAddCircleOutline size={16} />
+          </button>
         </div>
 
         <div className={style.containerTask}>
           <div className={style.taskInfo}>
             <p>
               <strong>Tarefas criadas</strong>
-              <span>{API.length}</span>
+              <span>0</span>
             </p>
 
             <p>
@@ -31,15 +57,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className={style.taskCreated}>
-            {API.map((item) => (
-              <Task
-                isCompleted={item.isCompleted}
-                task={item.task}
-                key={item.task}
-              />
-            ))}
-          </div>
+          <div className={style.taskCreated}></div>
         </div>
       </div>
     </div>
