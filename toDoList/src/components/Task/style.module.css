@@ -29,11 +29,14 @@
 .container input:checked {
   background-color: var(--blue);
 }
-
-.container svg {
+.container button {
+  background-color: transparent;
+  border: none;
+}
+.container button svg {
   color: var(--gray-300);
   transition: 300ms all;
 }
-.container svg:hover {
+.container button svg:hover {
   color: var(--danger);
 }

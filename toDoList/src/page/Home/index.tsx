@@ -23,8 +23,13 @@ export function Home() {
       isCompleted: false,
     };
     setTasks((prev) => [...prev, taskObj]);
+  }
+  function deleteTask(task: string) {
+    const newListTask = tasks.filter((item) => {
+      return item.task !== task.task;
+    });
 
-    console.log(tasks);
+    setTasks(newListTask);
   }
 
   return (
@@ -48,7 +53,7 @@ export function Home() {
           <div className={style.taskInfo}>
             <p>
               <strong>Tarefas criadas</strong>
-              <span>0</span>
+              <span>{tasks.length}</span>
             </p>
 
             <p>
@@ -57,7 +62,11 @@ export function Home() {
             </p>
           </div>
 
-          <div className={style.taskCreated}></div>
+          <div className={style.taskCreated}>
+            {tasks.map((item) => (
+              <Task handleDelete={deleteTask} task={item} key={item.task} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

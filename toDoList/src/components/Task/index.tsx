@@ -2,13 +2,15 @@ import styles from "./style.module.css";
 
 import { BsTrash } from "react-icons/bs";
 
-export function Task({ task }) {
+export function Task({ task, handleDelete }) {
   return (
     <div className={styles.container}>
-      <input type="checkbox" />
-      <p> {task} </p>
+      <input type="checkbox" readOnly={task.isCompleted} />
+      <p> {task.task} </p>
 
-      <BsTrash size={16} />
+      <button onClick={() => handleDelete(task)}>
+        <BsTrash size={16} />
+      </button>
     </div>
   );
 }
