@@ -28,7 +28,6 @@ export function Home() {
     const newListTask = tasks.filter((item) => {
       return item.task !== task.task;
     });
-
     setTasks(newListTask);
   }
 

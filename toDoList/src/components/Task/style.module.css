@@ -40,3 +40,7 @@
 .container button svg:hover {
   color: var(--danger);
 }
+
+.checked {
+  text-decoration: line-through;
+}
