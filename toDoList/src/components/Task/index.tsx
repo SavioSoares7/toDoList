@@ -4,14 +4,15 @@ import { BsTrash } from "react-icons/bs";
 
 import { useState } from "react";
 
-export function Task({ task, handleDelete }) {
+export function Task({ task, handleDelete }: any) {
   const [isCompleted, setIsCompleted] = useState(task.isCompleted);
 
   function handleTask() {
-    console.log(task.isCompleted);
     if (isCompleted) {
+      task.isCompleted = false;
       return setIsCompleted(false);
     } else {
+      task.isCompleted = true;
       return setIsCompleted(true);
     }
   }

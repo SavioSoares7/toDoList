@@ -7,6 +7,7 @@ import { Header } from "../../components/Header";
 import { Task } from "../../components/Task";
 
 import { useState } from "react";
+import { useEffect } from "react";
 
 type taskBuild = {
   task: string;
@@ -16,6 +17,8 @@ type taskBuild = {
 export function Home() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState<taskBuild[]>([]);
+
+  const [taskFinished, setTaskFinished] = useState("0 de 0");
 
   function createTask(taskName: string) {
     let taskObj: taskBuild = {
@@ -30,6 +33,12 @@ export function Home() {
     });
     setTasks(newListTask);
   }
+
+  useEffect(() => {
+    const taskCompleted = tasks.filter((item) => item.isCompleted == true);
+
+    setTaskFinished(() => `${taskCompleted.length} de ${tasks.length}`);
+  }, [taskFinished]);
 
   return (
     <div className={style.main}>
@@ -57,7 +66,7 @@ export function Home() {
 
             <p>
               <strong>Concluídas</strong>
-              <span>0</span>
+              <span>{taskFinished}</span>
             </p>
           </div>
 
